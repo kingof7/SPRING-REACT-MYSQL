@@ -10,6 +10,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,8 +26,8 @@ public class WebSecurityConfig {
     private final JWTAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
-    protected SecurityFilterChain configure(HttpSecurity HttpSecurity) throws Exception {
-        HttpSecurity
+    protected SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity
                 .cors().and()
                 .csrf().disable()
                 .httpBasic().disable()
@@ -37,7 +38,7 @@ public class WebSecurityConfig {
                 .anyRequest().authenticated().and()
                 .exceptionHandling().authenticationEntryPoint(new FailedAuthenticationEntryPoint()); // 필터 등록
 
-        httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePaswordAuthenticationFilter.class);
+        httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return httpSecurity.build();
     }
