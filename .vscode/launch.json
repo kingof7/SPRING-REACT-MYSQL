@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-BoardBackendApplication<board-backend>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "kr.co.sorin.board_backend.BoardBackendApplication",
+      "projectName": "board-backend",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
