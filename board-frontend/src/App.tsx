@@ -1,9 +1,12 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import BoardListItem from "components/BoardListItem";
 
 function App() {
   return (
-    <></>
+    <>
+      <BoardListItem />
+    </>
   );
 }
 
