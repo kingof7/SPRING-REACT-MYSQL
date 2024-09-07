@@ -1,0 +1,8 @@
+-- Spring 3.x 버전 특징
+구 -> 신
+
+1. Java 17 이상 사용
+2. javax.* -> jakarta.*
+3. application.properties / application.yaml (use-legacy-processing)
+4. AntPathMatcher -> PathPatternParser
+5. 외부 라이브러리 사용 시, Jakarta, Spring Framework 6.x 버전 지원 여부를 확인해야 함
