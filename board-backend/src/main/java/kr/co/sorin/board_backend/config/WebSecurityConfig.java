@@ -25,7 +25,24 @@ public class WebSecurityConfig {
                 .httpBasic().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                .anyRequest().permitAll();
+                .antMatchers("/", "/api/v1/auth/**", "/api/v1/search/**", "/file/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/v1/board/**", "/api/v1/user/*").permitAll()
+                .anyRequest().authenticated().and()
+                .exceptionHandling().authenticationEntryPoint(new FailedAuthenticationEntryPoint()); // 필터 등록
 
+        httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePaswordAuthenticationFilter.class);
+
+        return httpSecurity.build();
+    }
+}
+
+class FailedAuthenticationEntryPoint implements AuthenticationEntryPoint {
+
+    @Override
+    public void commence(HttpServletRequest request, HttpServletResponse response,
+            AuthenticationException authException) throws IOException, ServletException {
+        response.setContentType("application/json");
+        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+        response.getWriter().write("{ \"code\": \"NP\", \"message\": \"Do not have Permission.\" }");
     }
 }
