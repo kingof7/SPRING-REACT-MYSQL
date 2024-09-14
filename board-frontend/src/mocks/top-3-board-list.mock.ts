@@ -1,6 +1,6 @@
 import { BoardListItem } from "types/interface";
 
-const latestBoardListMocks: BoardListItem[] = [
+const top3BoardListMocks: BoardListItem[] = [
     {
         "boardNumber": 1,
         "title": "오늘 점심 뭐먹지 맛있는 거 먹고 싶은데 추천 부탁 오늘 점심 뭐먹지 맛있는 거 먹고 싶은데",
@@ -37,30 +37,6 @@ const latestBoardListMocks: BoardListItem[] = [
         "writerNickname": "안녕하세요나는주코야키",
         "writerProfileImage": "https://www.handmk.com/news/photo/202306/16714_40371_5250.jpg",
     },
-    {
-        "boardNumber": 4,
-        "title": "오늘 점심 뭐먹지 맛있는 거 먹고 싶은데 추천 부탁 오늘 점심 뭐먹지 맛있는 거 먹고 싶은데",
-        "content": "오늘 점심 뭐먹지 맛있는 거 먹고 싶은데 추천 부탁 오늘 점심 뭐먹지 맛있는 거 먹고 싶은데오늘 점심 뭐먹지 맛있는 거 먹고 싶은데 추천 부탁 오늘 점심 뭐먹지 맛있는 거 먹고 싶은데",
-        "boardTitleImage": null,
-        "favoriteCount": 0,
-        "commentCount": 0,
-        "viewCount": 0,
-        "writeDatetime": "2024.09.14. 23:59:30",
-        "writerNickname": "안녕하세요나는주코야키",
-        "writerProfileImage": "https://www.handmk.com/news/photo/202306/16714_40371_5250.jpg",
-    },
-    {
-        "boardNumber": 5,
-        "title": "오늘 점심 뭐먹지 맛있는 거 먹고 싶은데 추천 부탁 오늘 점심 뭐먹지 맛있는 거 먹고 싶은데",
-        "content": "오늘 점심 뭐먹지 맛있는 거 먹고 싶은데 추천 부탁 오늘 점심 뭐먹지 맛있는 거 먹고 싶은데오늘 점심 뭐먹지 맛있는 거 먹고 싶은데 추천 부탁 오늘 점심 뭐먹지 맛있는 거 먹고 싶은데",
-        "boardTitleImage": null,
-        "favoriteCount": 0,
-        "commentCount": 0,
-        "viewCount": 0,
-        "writeDatetime": "2024.09.14. 23:59:30",
-        "writerNickname": "안녕하세요나는주코야키",
-        "writerProfileImage": "https://www.handmk.com/news/photo/202306/16714_40371_5250.jpg",
-    },
 ];
 
-export default latestBoardListMocks;
+export default top3BoardListMocks;
