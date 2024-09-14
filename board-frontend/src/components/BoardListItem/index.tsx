@@ -1,50 +1,73 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-redeclare */
 import React from "react";
 import "./style.css";
+import { BoardListItem as BoardListItemType } from "types/interface";
+import { useNavigate } from "react-router-dom";
+import DefaultProfileImage from "assets/image/default-profile-image.png";
 
+interface Props {
+  boardListItem: BoardListItemType
+}
 //         component : Board List Item 컴포넌트         //
-export default function BoardListItem() {
+export default function BoardListItem({ boardListItem }: Props) {
+
+  //          properties                  //
+  const { boardNumber, title, content, boardTitleImage } = boardListItem;
+  const { favoriteCount, commentCount, viewCount } = boardListItem;
+  const { writeDatetime, writerNickname, writerProfileImage } = boardListItem;
+
+  //         function: 네비게이트 함수        //
+  // const navigator = useNavigate();
+  
+  //         event handler: 게시물, 아이템 클릭 처리 함수       //
+  const onClickHandler = () => {
+    // navigator(boardNumber);
+  }
   //         render : Board List Item 컴포넌트 렌더링         //
   return (
-    <div className="board-list-item">
+    <div className="board-list-item" onClick={onClickHandler}>
       <div className="board-list-item-main-box">
         <div className="board-list-item-top">
           <div className="board-list-item-profile-box">
             <div
               className="board-list-item-profile-image"
               style={{
-                backgroundImage: `url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fbackground%2F&psig=AOvVaw3UOZLp6pB-rpkLzIfykF9N&ust=1725829613516000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMj9k7vesYgDFQAAAAAdAAAAABAE)`,
+                backgroundImage: `url(${writerProfileImage ? writerProfileImage : DefaultProfileImage})`,
               }}
             ></div>
           </div>
           <div className="board-list-item-write-box">
             <div className="board-list-item-nickname">
-              {"안녕하세요나는준코야키"}
+              {writerNickname}
             </div>
-            <div className="board-list-write-datetime">{"2022. 05. 12."}</div>
+            <div className="board-list-write-datetime">{writeDatetime}</div>
           </div>
         </div>
         <div className="board-list-item-middle">
           <div className="board-list-item-title">
-            {"오늘 점심 뭐먹지? 맛있는 거 먹고 싶어. 점메추좀..."}
+            {title}
           </div>
           <div className="board-list-item-content">
-            {"오늘 점심 뭐먹지? 맛있는 거 먹고 싶어. 점메추좀... 부타악 해요~!"}
+            {content}
           </div>
         </div>
         <div className="board-list-item-bottom">
           <div className="board-list-item-counts">
-            {`댓글 0   .   좋아요 0   .   조회수 1`}
+            {`댓글 ${commentCount}   .   좋아요 ${favoriteCount}   .   조회수 ${viewCount}`}
           </div>
         </div>
       </div>
-      <div className="board-list-item-image-box">
-        <div
-          className="board-list-item-image"
-          style={{
-            backgroundImage: `url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngtree.com%2Ffreepng%2Fwooden-board-sign--content-box--text-box_5774400.html&psig=AOvVaw1vBXQPuJDmCmhCxj3arcfO&ust=1725829712261000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOj82O3esYgDFQAAAAAdAAAAABAE)`,
-          }}
-        ></div>
-      </div>
+      {boardTitleImage !== null && (
+        <div className="board-list-item-image-box">
+          <div
+            className="board-list-item-image"
+            style={{
+              backgroundImage: `url(${boardTitleImage})`,
+            }}
+          ></div>
+        </div>
+      )}
     </div>
   );
 }
