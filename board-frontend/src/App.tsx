@@ -1,14 +1,17 @@
 import React from "react";
 import "./App.css";
-import { latestBoardListMocks, top3BoardListMocks } from "mocks";
-import Top3Item from 'components/Top3Item';
+import { commentListMock, favoriteListMock } from "mocks";
+import CommentItem from "components/CommentItem";
+import FavoriteItem from "components/FavoriteItem";
 
 function App() {
   return (
     <>
-      {/* {latestBoardListMocks.map(boardListItem => <BoardListItem boardListItem={boardListItem} />)} */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '24px'}}>
-        {top3BoardListMocks.map(top3ListItem => <Top3Item top3ListItem={top3ListItem} />)}
+      {/* <div style={{ padding: '0 20px', display: 'flex', flexDirection: 'column', gap: '30px' }}>
+        {commentListMock.map(commentListItem => <CommentItem commentListItem={commentListItem} />)}
+      </div> */}
+      <div style={{ display: 'flex', flexDirection: 'column', columnGap: '30px', rowGap: '20px' }}>
+        {favoriteListMock.map(favoriteListItem => <FavoriteItem favoriteListItem={favoriteListItem} />)}
       </div>
     </>
   );
