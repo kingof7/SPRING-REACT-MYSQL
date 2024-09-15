@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-import InputBox from "components/InputBox";
+import Footer from "layouts/Footer";
 
 function App() {
 
-  const [value, setValue] = useState<string>('');
-
   return (
     <>
-      <InputBox label='이메일' type='text' placeholder='이메일 주소를 입력해주세요.' value={value} error={false} setValue={setValue} message='error message' />
+      <Footer />
     </>
   );
 }
