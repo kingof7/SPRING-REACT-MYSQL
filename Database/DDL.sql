@@ -1,4 +1,3 @@
--- Active: 1725702139114@@localhost@3306@board
 CREATE TABLE board (
     board_number INT NOT NULL AUTO_INCREMENT COMMENT '게시물 번호',
     title TEXT NOT NULL COMMENT '게시물 제목',

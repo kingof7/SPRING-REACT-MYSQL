@@ -1,4 +1,3 @@
--- Active: 1725702139114@@localhost@3306@board
 INSERT INTO
     user
 VALUES (
