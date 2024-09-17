@@ -72,7 +72,7 @@ SELECT
     B.board_number AS board_number,
     B.title AS title,
     B.content AS content,
-    I.image AS image,
+    I.image AS title_image,
     B.favorite_count AS favorite_count,
     B.comment_count AS comment_count,
     B.view_count AS view_count,
@@ -88,3 +88,5 @@ FROM board AS B
         GROUP BY
             board_number
     ) AS I ON B.board_number = I.board_number;
+
+ALTER TABLE `image` ADD COLUMN `sequence` INT PRIMARY KEY AUTO_INCREMENT COMMENT '이미지 번호';
