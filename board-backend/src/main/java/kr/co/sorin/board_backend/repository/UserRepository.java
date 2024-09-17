@@ -8,4 +8,9 @@ import kr.co.sorin.board_backend.entity.UserEntity;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, String> { // JpaRepository<Entity, primary_key Wrapper type>
 
+    // query method
+    boolean existsByEmail(String email);
+    boolean existsByNickname(String nickname);
+    boolean existsByTelNumber(String telNumber);
+
 }
