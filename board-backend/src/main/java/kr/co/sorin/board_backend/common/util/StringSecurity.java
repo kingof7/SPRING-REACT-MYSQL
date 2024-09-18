@@ -10,7 +10,11 @@ public class StringSecurity {
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public String encodePassword(String password) {
-        return passwordEncoder.encode(passwordEncoder.encode(passwordEncoder.encode(password)));
+        return passwordEncoder.encode(password);
+    }
+
+    public boolean isMatched(String password, String encodedPassword) {
+        return passwordEncoder.matches(password, encodedPassword);
     }
 
 }

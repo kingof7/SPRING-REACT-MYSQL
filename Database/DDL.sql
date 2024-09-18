@@ -89,4 +89,8 @@ FROM board AS B
             board_number
     ) AS I ON B.board_number = I.board_number;
 
-ALTER TABLE `image` ADD COLUMN `sequence` INT PRIMARY KEY AUTO_INCREMENT COMMENT '이미지 번호';
+ALTER TABLE `image`
+ADD COLUMN `sequence` INT PRIMARY KEY AUTO_INCREMENT COMMENT '이미지 번호';
+
+ALTER TABLE `user`
+ADD COLUMN `agreed_personal` BOOLEAN NOT NULL COMMENT '개인정보 동의 여부';
