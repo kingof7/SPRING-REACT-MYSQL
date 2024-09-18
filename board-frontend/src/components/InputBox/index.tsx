@@ -10,7 +10,8 @@ interface Props { // 외부에서 받아오는 변수들 정의함
     setValue: React.Dispatch<SetStateAction<string>>; // App.tsx의 usetState에서 가져옴
     error: boolean;
 
-    icon?: string; // 필수가 아님
+    // icon?: string; // 필수가 아님
+    icon?: 'eye-light-off-icon' | 'eye-light-on-icon' | 'expand-right-light-icon';
     onButtonClick?: () => void; // 필수가 아님
 
     message?: string;
@@ -45,7 +46,7 @@ const InputBox = forwardRef<HTMLInputElement, Props>((props: Props, ref) => { //
             <div className={error ? 'inputbox-container-error' : 'inputbox-container'}>
                 <input ref={ref} type={type} className='input' placeholder={placeholder} value={value} onChange={onChangeHandler} onKeyDown={onKeyDownHandler} />
                 {onButtonClick !== undefined && (
-                    <div className='icon-button'>
+                    <div className='icon-button' onClick={onButtonClick}>
                         {icon !== undefined && (<div className={`icon ${icon}`}></div>)}
                     </div>
                 )}

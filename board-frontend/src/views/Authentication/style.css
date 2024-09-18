@@ -45,7 +45,7 @@
     height: 50px;
     background-image: url(assets/auth-logo.png);
     background-position: 50% 50%;
-    background-size: 100% 100%;
+    background-size  : 100% 100%;
 }
 
 .auth-jumbotron-text-box {
