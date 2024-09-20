@@ -26,11 +26,21 @@ export default function Authentication() {
     const [passwordButtonIcon, setPasswordButtonIcon] = useState<'eye-light-off-icon' | 'eye-light-on-icon'>('eye-light-off-icon');
     //          state: error 상태                //
     const [error, setError] = useState<boolean>(false);
-    
+
     //          event handler: 로그인 버튼 클릭 이벤트 처리   //
     const onSignInButtonClickHandler = () => {
 
     };
+
+    //          event handler: 회원가입 링크 클릭 이벤트 처리   //
+    const onSignUpLinkClickHandler = () => {
+      setView('sign-up');
+    };
+
+    //          event handler: 패스워드 버튼 클릭 이벤트 처리   //
+    // const onPasswordButtonClickHandler = () => {
+
+    // };
 
     //          event handler: 패스워드 버튼 클릭 이벤트 처리   //
     const onPasswordButtonClickHandler = () => {
@@ -77,7 +87,7 @@ export default function Authentication() {
             <div className='black-large-full-button' onClick={onSignInButtonClickHandler}>{'로그인'}</div>
             <div className='auth-description-box'>
               <div className='auth-description'>
-                {'신규 사용자이신가요?'}<span className='auth-description-link'>{'회원가입'}</span>
+                {'신규 사용자이신가요?'}<span className='auth-description-link' onClick={onSignUpLinkClickHandler}>{'회원가입'}</span>
               </div>
             </div>
           </div>
