@@ -79,15 +79,17 @@ export default function Authentication() {
             <InputBox ref={passwordRef} label='패스워드' type={passwordType} placeholder='비밀번호를 입력해주세요.' error={error} value={password} setValue={setPassword} onKeyDown={onPasswordKeyDownHandler} icon={passwordButtonIcon} onButtonClick={onPasswordButtonClickHandler} />
           </div>
           <div className='auth-card-bottom'>
-            <div className='auth-sign-in-error-box'>
-              <div className='auth-sign-in-error-message'>
-                {'이메일 또는 비밀번호를 잘못 입력하셨습니다.\n입력하신 내용을 다시 확인해주세요.'}
+            {error && 
+              <div className='auth-sign-in-error-box'>
+                <div className='auth-sign-in-error-message'>
+                  {'이메일 또는 비밀번호를 잘못 입력하셨습니다.\n입력하신 내용을 다시 확인해주세요.'}
+                </div>
               </div>
-            </div>
+            }
             <div className='black-large-full-button' onClick={onSignInButtonClickHandler}>{'로그인'}</div>
             <div className='auth-description-box'>
               <div className='auth-description'>
-                {'신규 사용자이신가요?'}<span className='auth-description-link' onClick={onSignUpLinkClickHandler}>{'회원가입'}</span>
+                {'신규 사용자이신가요? '}<span className='auth-description-link' onClick={onSignUpLinkClickHandler}>{'회원가입'}</span>
               </div>
             </div>
           </div>
