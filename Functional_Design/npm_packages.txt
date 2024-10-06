@@ -1,6 +1,0 @@
-[npm package list]
-
-npm i react-router-dom
-npm i react-cookie
-npm i zustand
-npm i axios

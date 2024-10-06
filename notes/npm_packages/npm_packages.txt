@@ -1,0 +1,10 @@
+[npm packages]
+
+# npm i react-router-dom \
+        react-cookie \
+        zustand, axios \
+        react-daum-postcode
+
+[npm package api docs]
+
+https://npmjs.com/package/${package_name}
