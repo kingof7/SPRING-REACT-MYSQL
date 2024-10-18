@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-redeclare */
 import axios from 'axios';
 import { SignUpRequestDto, SignInRequestDto } from './request/auth';
-import { SignInResponseDto } from './response/auth';
+import { SignInResponseDto, SignUpResponseDto } from './response/auth';
 import { ResponseDto } from './response';
 
 const DOMAIN = 'http://localhost:4000';
