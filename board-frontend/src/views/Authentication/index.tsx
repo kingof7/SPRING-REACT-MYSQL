@@ -1,4 +1,4 @@
-import React, { useState, useRef, KeyboardEvent, ChangeEvent } from 'react';
+import React, { useState, useRef, KeyboardEvent, ChangeEvent, useEffect } from 'react';
 import './style.css';
 import InputBox from 'components/InputBox';
 import { SignInResponseDto, SignUpResponseDto } from 'apis/response/auth';
@@ -112,7 +112,7 @@ export default function Authentication() {
       passwordRef.current.focus();
     };
 
-    //          event handler: 패스워드 키다운 이벤트 처리   //
+    //          event handler: 패스워드 키 다운 이벤트 처리   //
     const onPasswordKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
       if (event.key !== 'Enter') return;
       onSignInButtonClickHandler();
@@ -180,8 +180,8 @@ export default function Authentication() {
     const addressDetailRef = useRef<HTMLInputElement | null>(null);
 
     //      state: 페이지 번호 상태                   //
-    // const [page, setPage] = useState<1 | 2>(1);
-    const [page, setPage] = useState<1 | 2>(2);
+    const [page, setPage] = useState<1 | 2>(1);
+    // const [page, setPage] = useState<1 | 2>(2);
 
     //      state: 이메일 상태                   //
     const [email, setEmail] = useState<string>('');
@@ -353,7 +353,7 @@ export default function Authentication() {
       }
     };
 
-    //      event handler: 개인정보동의 체크박스 클릭 이벤트 처리           //
+    //      event handler: 개인 정보 동의 체크박스 클릭 이벤트 처리           //
     const onAgreedPersonalClickHandler = () => {
       setAgreedPersonal(!agreedPersonal);
       setAgreedPersonalError(false);
@@ -361,7 +361,7 @@ export default function Authentication() {
 
     //      event handler: 패스워드 확인 버튼 클릭 이벤트 처리           //
     const onPasswordCheckButtonClickHandler = () => {
-      if (passwordButtonIcon === 'eye-light-off-icon') {
+      if (passwordCheckButtonIcon === 'eye-light-off-icon') {
         setPasswordCheckButtonIcon('eye-light-on-icon');
         setPasswordCheckType('text');
       }else {
@@ -404,7 +404,7 @@ export default function Authentication() {
 
     //      event handler: 회원가입 버튼 클릭 이벤트 처리          //
     const onSignUpButtonClickHandler = () => {
-      alert('회원가입 버튼!');
+      // alert('회원가입 버튼!');
       const emailPattern = /^[a-zA-Z0-9]*@([-.]?[a-zA-Z0-9])*\.[a-zA-Z]{2,4}$/;
       const isEmailPattern = emailPattern.test(email);
 
@@ -494,6 +494,13 @@ export default function Authentication() {
       if (!addressDetailRef.current) return;
       addressDetailRef.current.focus();
     };
+    //      effect: 페이지가 변경될 때 마다 실행될 함수         //
+    useEffect(() => {
+      if(page === 2) {
+        if(!nicknameRef.current) return;
+        nicknameRef.current.focus();
+      }
+    }, [page])
 
     //      event handler: 상세 주소 키다운 이벤트 처리           //
     const onAddressDetailKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -505,6 +512,8 @@ export default function Authentication() {
     const onComplete = (data: Address) => {
       const { address } = data;
       setAddress(address);
+      setAddressError(false);
+      setAddressErrorMessage('');
       if (!addressDetailRef.current) return;
       addressDetailRef.current.focus();
     };
